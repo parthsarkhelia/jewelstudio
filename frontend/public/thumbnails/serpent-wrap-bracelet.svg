@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f3"/>
+      <stop offset="100%" stop-color="#ede8e1"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a84b"/>
+      <stop offset="35%" stop-color="#f5d998"/>
+      <stop offset="65%" stop-color="#d4a84b"/>
+      <stop offset="100%" stop-color="#b8922f"/>
+    </linearGradient>
+    <linearGradient id="goldDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b8922f"/>
+      <stop offset="100%" stop-color="#8a6e22"/>
+    </linearGradient>
+    <linearGradient id="goldLight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f5d998"/>
+      <stop offset="50%" stop-color="#fffbe6"/>
+      <stop offset="100%" stop-color="#f5d998"/>
+    </linearGradient>
+    <radialGradient id="emeraldEye" cx="40%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#33aa66"/>
+      <stop offset="60%" stop-color="#008844"/>
+      <stop offset="100%" stop-color="#004422"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#00000020"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <!-- Outer coil of the serpent body -->
+    <path d="M150 340 Q100 340 90 290 Q80 240 130 220 Q180 200 240 205 Q310 210 350 240 Q400 275 380 330 Q360 380 300 390 Q240 400 190 375 Q155 358 150 340Z"
+          fill="url(#gold)" stroke="url(#goldDark)" stroke-width="1.5"/>
+    <!-- Outer coil highlight -->
+    <path d="M155 335 Q110 335 100 290 Q92 248 135 228 Q180 210 238 214 Q305 218 342 245 Q385 278 370 328 Q355 372 298 382"
+          fill="none" stroke="url(#goldLight)" stroke-width="3" opacity="0.4" stroke-linecap="round"/>
+    <!-- Inner coil -->
+    <path d="M200 345 Q160 335 155 300 Q150 265 185 248 Q220 232 265 238 Q310 244 330 270 Q350 300 335 330 Q318 355 280 360 Q245 365 220 352"
+          fill="url(#gold)" stroke="url(#goldDark)" stroke-width="1.5"/>
+    <!-- Inner coil highlight -->
+    <path d="M205 340 Q170 332 165 300 Q160 270 192 255 Q225 240 265 246 Q305 252 322 275 Q340 300 328 326"
+          fill="none" stroke="url(#goldLight)" stroke-width="2.5" opacity="0.4" stroke-linecap="round"/>
+    <!-- Scale texture on outer coil -->
+    <g opacity="0.15" stroke="url(#goldDark)" stroke-width="0.8" fill="none">
+      <path d="M130 280 Q145 270 160 280"/>
+      <path d="M150 260 Q165 250 180 260"/>
+      <path d="M180 245 Q195 235 210 245"/>
+      <path d="M220 235 Q235 225 250 235"/>
+      <path d="M260 235 Q275 228 290 238"/>
+      <path d="M300 250 Q315 242 330 252"/>
+      <path d="M340 275 Q352 268 360 280"/>
+      <path d="M360 305 Q370 298 375 312"/>
+      <path d="M355 340 Q365 335 370 348"/>
+      <path d="M330 365 Q342 360 345 372"/>
+      <path d="M290 380 Q302 377 305 388"/>
+      <path d="M240 385 Q252 382 255 392"/>
+    </g>
+    <!-- Scale texture on inner coil -->
+    <g opacity="0.15" stroke="url(#goldDark)" stroke-width="0.8" fill="none">
+      <path d="M190 300 Q200 292 210 300"/>
+      <path d="M210 280 Q220 272 230 280"/>
+      <path d="M240 268 Q250 260 260 268"/>
+      <path d="M275 268 Q285 262 295 272"/>
+      <path d="M310 285 Q318 280 322 290"/>
+      <path d="M320 310 Q328 305 330 315"/>
+      <path d="M310 340 Q318 336 322 345"/>
+      <path d="M280 355 Q290 350 295 358"/>
+    </g>
+    <!-- Serpent neck rising up -->
+    <path d="M200 345 Q185 340 175 315 Q165 285 175 255 Q185 225 210 200 Q235 175 250 155 Q260 142 258 130"
+          fill="none" stroke="url(#gold)" stroke-width="22" stroke-linecap="round"/>
+    <!-- Neck highlight -->
+    <path d="M200 340 Q187 333 178 310 Q170 282 178 255 Q188 228 212 204 Q235 180 248 160"
+          fill="none" stroke="url(#goldLight)" stroke-width="5" opacity="0.35" stroke-linecap="round"/>
+    <!-- Serpent head -->
+    <path d="M228 125 Q235 108 256 100 Q278 92 295 102 Q310 112 308 130 Q306 148 290 155 Q270 163 252 158 Q235 152 228 140 Z"
+          fill="url(#gold)" stroke="url(#goldDark)" stroke-width="1.5"/>
+    <!-- Head top highlight -->
+    <path d="M240 118 Q252 108 270 105 Q285 103 295 110"
+          fill="none" stroke="url(#goldLight)" stroke-width="2.5" opacity="0.5" stroke-linecap="round"/>
+    <!-- Eyes -->
+    <ellipse cx="258" cy="120" rx="5" ry="5.5" fill="url(#emeraldEye)" stroke="#003311" stroke-width="0.8"/>
+    <ellipse cx="282" cy="118" rx="5" ry="5.5" fill="url(#emeraldEye)" stroke="#003311" stroke-width="0.8"/>
+    <!-- Eye sparkle -->
+    <circle cx="256" cy="118" r="1.5" fill="white" opacity="0.7"/>
+    <circle cx="280" cy="116" r="1.5" fill="white" opacity="0.7"/>
+    <!-- Pupil slits -->
+    <ellipse cx="258" cy="120" rx="1.5" ry="4" fill="#001a0a"/>
+    <ellipse cx="282" cy="118" rx="1.5" ry="4" fill="#001a0a"/>
+    <!-- Forked tongue -->
+    <path d="M230 132 L215 136 L210 132 M215 136 L212 141" fill="none" stroke="#cc6644" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- Nostril details -->
+    <circle cx="240" cy="125" r="1.2" fill="url(#goldDark)"/>
+    <circle cx="245" cy="123" r="1" fill="url(#goldDark)"/>
+    <!-- Tail end -->
+    <path d="M380 330 Q395 318 405 295 Q412 278 408 265"
+          fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/>
+    <path d="M408 265 Q405 252 398 248"
+          fill="none" stroke="url(#gold)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M398 248 Q392 245 390 240"
+          fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

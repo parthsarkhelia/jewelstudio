@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f3"/>
+      <stop offset="100%" stop-color="#ede8e1"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c0c0c0"/>
+      <stop offset="35%" stop-color="#e8e8e8"/>
+      <stop offset="65%" stop-color="#d0d0d0"/>
+      <stop offset="100%" stop-color="#b0b0b0"/>
+    </linearGradient>
+    <linearGradient id="silverBright" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d0d0d0"/>
+      <stop offset="50%" stop-color="#f5f5f5"/>
+      <stop offset="100%" stop-color="#d0d0d0"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a84b"/>
+      <stop offset="40%" stop-color="#f5d998"/>
+      <stop offset="60%" stop-color="#d4a84b"/>
+      <stop offset="100%" stop-color="#b8922f"/>
+    </linearGradient>
+    <radialGradient id="emeraldGem" cx="40%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#33aa66"/>
+      <stop offset="50%" stop-color="#006633"/>
+      <stop offset="100%" stop-color="#003318"/>
+    </radialGradient>
+    <radialGradient id="onyx" cx="45%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#444444"/>
+      <stop offset="60%" stop-color="#222222"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </radialGradient>
+    <radialGradient id="diamond" cx="40%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#e8f4ff"/>
+      <stop offset="100%" stop-color="#b8d8ff"/>
+    </radialGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#00000025"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g filter="url(#shadow)" transform="translate(256,256)">
+    <!-- Outer geometric frame - elongated octagon -->
+    <path d="M0 -140 L70 -120 L100 -50 L100 50 L70 120 L0 140 L-70 120 L-100 50 L-100 -50 L-70 -120 Z"
+          fill="url(#silver)" stroke="#a0a0a0" stroke-width="1.5"/>
+    <!-- Inner frame border -->
+    <path d="M0 -128 L63 -110 L90 -46 L90 46 L63 110 L0 128 L-63 110 L-90 46 L-90 -46 L-63 -110 Z"
+          fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+    <!-- Art Deco stepped pattern - background fill -->
+    <path d="M0 -118 L57 -102 L82 -42 L82 42 L57 102 L0 118 L-57 102 L-82 42 L-82 -42 L-57 -102 Z"
+          fill="#1a1a2e" opacity="0.06"/>
+    <!-- Central vertical line -->
+    <line x1="0" y1="-118" x2="0" y2="118" stroke="url(#gold)" stroke-width="1.2" opacity="0.5"/>
+    <!-- Central horizontal line -->
+    <line x1="-82" y1="0" x2="82" y2="0" stroke="url(#gold)" stroke-width="1.2" opacity="0.5"/>
+    <!-- Diagonal Art Deco sunburst lines -->
+    <g stroke="url(#gold)" stroke-width="0.8" opacity="0.3">
+      <line x1="0" y1="0" x2="57" y2="-102"/>
+      <line x1="0" y1="0" x2="82" y2="-42"/>
+      <line x1="0" y1="0" x2="82" y2="42"/>
+      <line x1="0" y1="0" x2="57" y2="102"/>
+      <line x1="0" y1="0" x2="-57" y2="102"/>
+      <line x1="0" y1="0" x2="-82" y2="42"/>
+      <line x1="0" y1="0" x2="-82" y2="-42"/>
+      <line x1="0" y1="0" x2="-57" y2="-102"/>
+    </g>
+    <!-- Stepped Art Deco concentric shapes -->
+    <path d="M0 -85 L42 -72 L60 -30 L60 30 L42 72 L0 85 L-42 72 L-60 30 L-60 -30 L-42 -72 Z"
+          fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.6"/>
+    <path d="M0 -55 L28 -46 L40 -20 L40 20 L28 46 L0 55 L-28 46 L-40 20 L-40 -20 L-28 -46 Z"
+          fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.7"/>
+    <!-- Onyx panels in Art Deco style -->
+    <path d="M5 -115 L52 -100 L78 -42 L78 -5 L5 -5 Z" fill="url(#onyx)" opacity="0.12"/>
+    <path d="M-5 -115 L-52 -100 L-78 -42 L-78 -5 L-5 -5 Z" fill="url(#onyx)" opacity="0.12"/>
+    <path d="M5 115 L52 100 L78 42 L78 5 L5 5 Z" fill="url(#onyx)" opacity="0.08"/>
+    <path d="M-5 115 L-52 100 L-78 42 L-78 5 L-5 5 Z" fill="url(#onyx)" opacity="0.08"/>
+    <!-- Central emerald stone -->
+    <circle cx="0" cy="0" r="22" fill="url(#emeraldGem)" stroke="url(#gold)" stroke-width="2"/>
+    <circle cx="-5" cy="-5" r="6" fill="#44cc88" opacity="0.3"/>
+    <circle cx="-3" cy="-3" r="2" fill="white" opacity="0.4"/>
+    <!-- Diamond accents at cardinal points -->
+    <g>
+      <circle cx="0" cy="-75" r="7" fill="url(#diamond)" stroke="url(#gold)" stroke-width="1"/>
+      <circle cx="0" cy="75" r="7" fill="url(#diamond)" stroke="url(#gold)" stroke-width="1"/>
+      <circle cx="-70" cy="0" r="7" fill="url(#diamond)" stroke="url(#gold)" stroke-width="1"/>
+      <circle cx="70" cy="0" r="7" fill="url(#diamond)" stroke="url(#gold)" stroke-width="1"/>
+    </g>
+    <!-- Small diamond accents at intermediate points -->
+    <g>
+      <circle cx="38" cy="-64" r="4.5" fill="url(#diamond)" stroke="url(#gold)" stroke-width="0.8"/>
+      <circle cx="55" cy="-28" r="4.5" fill="url(#diamond)" stroke="url(#gold)" stroke-width="0.8"/>
+      <circle cx="55" cy="28" r="4.5" fill="url(#diamond)" stroke="url(#gold)" stroke-width="0.8"/>
+      <circle cx="38" cy="64" r="4.5" fill="url(#diamond)" stroke="url(#gold)" stroke-width="0.8"/>
+      <circle cx="-38" cy="64" r="4.5" fill="url(#diamond)" stroke="url(#gold)" stroke-width="0.8"/>
+      <circle cx="-55" cy="28" r="4.5" fill="url(#diamond)" stroke="url(#gold)" stroke-width="0.8"/>
+      <circle cx="-55" cy="-28" r="4.5" fill="url(#diamond)" stroke="url(#gold)" stroke-width="0.8"/>
+      <circle cx="-38" cy="-64" r="4.5" fill="url(#diamond)" stroke="url(#gold)" stroke-width="0.8"/>
+    </g>
+    <!-- Sparkle accents -->
+    <g fill="white" opacity="0.5">
+      <circle cx="-1" cy="-74" r="1.5"/>
+      <circle cx="-69" cy="-1" r="1.2"/>
+      <circle cx="37" cy="-63" r="1"/>
+      <circle cx="-4" cy="-6" r="1.5"/>
+    </g>
+    <!-- Pin clasp on back (subtle indication) -->
+    <line x1="-80" y1="130" x2="80" y2="130" stroke="url(#silver)" stroke-width="2" opacity="0.2"/>
+  </g>
+</svg>

@@ -6,7 +6,7 @@ export default function Home() {
       <div className="mx-auto max-w-4xl text-center px-4">
         <h1 className="text-6xl font-bold tracking-tight mb-6">
           <span className="bg-gradient-to-r from-amber-400 to-yellow-200 bg-clip-text text-transparent">
-            iJewel
+            JewelStudio
           </span>
         </h1>
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">

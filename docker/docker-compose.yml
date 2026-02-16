@@ -4,13 +4,13 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: ijewel
-      POSTGRES_PASSWORD: ijewel_dev
-      POSTGRES_DB: ijewel
+      POSTGRES_USER: jewelstudio
+      POSTGRES_PASSWORD: jewelstudio_dev
+      POSTGRES_DB: jewelstudio
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ijewel"]
+      test: ["CMD-SHELL", "pg_isready -U jewelstudio"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -31,8 +31,8 @@ services:
       - "9000:9000"
       - "9001:9001"
     environment:
-      MINIO_ROOT_USER: ijewel
-      MINIO_ROOT_PASSWORD: ijewel_dev
+      MINIO_ROOT_USER: jewelstudio
+      MINIO_ROOT_PASSWORD: jewelstudio_dev
     volumes:
       - miniodata:/data
     command: server /data --console-address ":9001"
@@ -49,11 +49,11 @@ services:
         condition: service_healthy
     entrypoint: >
       /bin/sh -c "
-      mc alias set local http://minio:9000 ijewel ijewel_dev;
-      mc mb --ignore-existing local/ijewel-models;
-      mc mb --ignore-existing local/ijewel-thumbnails;
-      mc mb --ignore-existing local/ijewel-exports;
-      mc anonymous set download local/ijewel-thumbnails;
+      mc alias set local http://minio:9000 jewelstudio jewelstudio_dev;
+      mc mb --ignore-existing local/jewelstudio-models;
+      mc mb --ignore-existing local/jewelstudio-thumbnails;
+      mc mb --ignore-existing local/jewelstudio-exports;
+      mc anonymous set download local/jewelstudio-thumbnails;
       exit 0;
       "
 

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f3"/>
+      <stop offset="100%" stop-color="#ede8e1"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a84b"/>
+      <stop offset="40%" stop-color="#f5d998"/>
+      <stop offset="60%" stop-color="#d4a84b"/>
+      <stop offset="100%" stop-color="#b8922f"/>
+    </linearGradient>
+    <linearGradient id="goldEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5d998"/>
+      <stop offset="50%" stop-color="#d4a84b"/>
+      <stop offset="100%" stop-color="#b8922f"/>
+    </linearGradient>
+    <linearGradient id="goldHighlight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c49a3c"/>
+      <stop offset="50%" stop-color="#fffbe6"/>
+      <stop offset="100%" stop-color="#c49a3c"/>
+    </linearGradient>
+    <radialGradient id="ruby" cx="40%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#ff2244"/>
+      <stop offset="40%" stop-color="#cc0033"/>
+      <stop offset="75%" stop-color="#990022"/>
+      <stop offset="100%" stop-color="#880022"/>
+    </radialGradient>
+    <radialGradient id="rubyShine" cx="30%" cy="25%" r="30%">
+      <stop offset="0%" stop-color="#ff6688" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ff6688" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="10" flood-color="#00000022"/>
+    </filter>
+    <filter id="gemGlow">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#cc003340"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g filter="url(#shadow)" transform="rotate(-15, 256, 275)">
+    <!-- Ring band -->
+    <ellipse cx="256" cy="275" rx="115" ry="62" fill="none" stroke="url(#gold)" stroke-width="26"/>
+    <!-- Inner edge highlight -->
+    <ellipse cx="256" cy="275" rx="103" ry="52" fill="none" stroke="url(#goldHighlight)" stroke-width="1.5" opacity="0.3"/>
+    <!-- Outer edge highlight -->
+    <ellipse cx="256" cy="275" rx="127" ry="74" fill="none" stroke="url(#goldHighlight)" stroke-width="1" opacity="0.2"/>
+    <!-- Rubies around the visible top arc -->
+    <g filter="url(#gemGlow)">
+      <g transform="translate(256,213)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(231,215)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(281,215)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(207,222)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(305,222)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(185,233)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(327,233)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(166,248)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(346,248)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(150,266)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(362,266)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(143,286)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+      <g transform="translate(369,286)"><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#ruby)" stroke="#660015" stroke-width="0.5"/><rect x="-9" y="-9" width="18" height="18" rx="2" fill="url(#rubyShine)"/></g>
+    </g>
+    <!-- Ruby sparkle highlights -->
+    <g fill="white" opacity="0.3">
+      <circle cx="252" cy="210" r="1.5"/>
+      <circle cx="278" cy="212" r="1.2"/>
+      <circle cx="204" cy="219" r="1"/>
+      <circle cx="343" cy="245" r="1.3"/>
+    </g>
+    <!-- Gold separator lines between stones -->
+    <g stroke="#d4a84b" stroke-width="1.2" opacity="0.5">
+      <line x1="219" y1="213" x2="219" y2="218"/>
+      <line x1="243" y1="213" x2="243" y2="218"/>
+      <line x1="269" y1="213" x2="269" y2="218"/>
+      <line x1="293" y1="217" x2="293" y2="222"/>
+      <line x1="316" y1="226" x2="316" y2="231"/>
+      <line x1="337" y1="239" x2="337" y2="244"/>
+      <line x1="196" y1="226" x2="196" y2="231"/>
+      <line x1="176" y1="239" x2="176" y2="244"/>
+    </g>
+  </g>
+</svg>

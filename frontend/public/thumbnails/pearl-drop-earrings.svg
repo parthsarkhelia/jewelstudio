@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f3"/>
+      <stop offset="100%" stop-color="#ede8e1"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c0c0c0"/>
+      <stop offset="40%" stop-color="#e8e8e8"/>
+      <stop offset="70%" stop-color="#d0d0d0"/>
+      <stop offset="100%" stop-color="#b0b0b0"/>
+    </linearGradient>
+    <linearGradient id="silverHighlight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d0d0d0"/>
+      <stop offset="50%" stop-color="#f5f5f5"/>
+      <stop offset="100%" stop-color="#d0d0d0"/>
+    </linearGradient>
+    <radialGradient id="pearl" cx="38%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#fffef8"/>
+      <stop offset="25%" stop-color="#f8f0e8"/>
+      <stop offset="50%" stop-color="#f0e8dd"/>
+      <stop offset="80%" stop-color="#e5d8cc"/>
+      <stop offset="100%" stop-color="#d5c8bb"/>
+    </radialGradient>
+    <radialGradient id="pearlSheen" cx="30%" cy="28%" r="35%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pearlIridescent" cx="60%" cy="65%" r="40%">
+      <stop offset="0%" stop-color="#f0e0f0" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#e0f0f0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="smallDiamond" cx="40%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#e8f4ff"/>
+      <stop offset="100%" stop-color="#b8d8ff"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#00000020"/>
+    </filter>
+    <filter id="pearlGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#f0e8dd" flood-opacity="0.3"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <!-- Left Earring -->
+  <g filter="url(#shadow)">
+    <!-- Hook -->
+    <path d="M165 95 Q165 78 175 72 Q185 67 192 74 Q198 82 195 100 L190 120"
+          fill="none" stroke="url(#silver)" stroke-width="3" stroke-linecap="round"/>
+    <!-- Decorative top piece -->
+    <ellipse cx="188" cy="126" rx="14" ry="9" fill="url(#silver)" stroke="#a8a8a8" stroke-width="0.5"/>
+    <!-- Small diamond accent -->
+    <path d="M188 121 L193 126 L188 131 L183 126 Z" fill="url(#smallDiamond)" stroke="#a0c0e0" stroke-width="0.3"/>
+    <circle cx="186" cy="123" r="1" fill="white" opacity="0.7"/>
+    <!-- Chain/connector -->
+    <line x1="188" y1="135" x2="188" y2="168" stroke="url(#silver)" stroke-width="2"/>
+    <!-- Decorative filigree links -->
+    <ellipse cx="188" cy="145" rx="5" ry="3" fill="none" stroke="url(#silver)" stroke-width="1.2"/>
+    <ellipse cx="188" cy="158" rx="5" ry="3" fill="none" stroke="url(#silver)" stroke-width="1.2"/>
+    <!-- Decorative cap on pearl -->
+    <path d="M173 172 Q180 164 188 162 Q196 164 203 172 L200 180 Q188 184 176 180 Z"
+          fill="url(#silver)" stroke="#a8a8a8" stroke-width="0.5"/>
+    <!-- Small accent pearl -->
+    <circle cx="188" cy="170" r="7" fill="url(#pearl)" stroke="#d5c8bb" stroke-width="0.3"/>
+    <circle cx="185" cy="167" r="2" fill="white" opacity="0.4"/>
+    <!-- Main pearl drop -->
+    <g filter="url(#pearlGlow)">
+      <ellipse cx="188" cy="235" rx="44" ry="54" fill="url(#pearl)" stroke="#d5c8bb" stroke-width="0.5"/>
+      <ellipse cx="188" cy="235" rx="44" ry="54" fill="url(#pearlSheen)"/>
+      <ellipse cx="188" cy="235" rx="44" ry="54" fill="url(#pearlIridescent)"/>
+      <path d="M158 218 Q172 210 196 215" fill="none" stroke="white" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+    </g>
+  </g>
+  <!-- Right Earring -->
+  <g filter="url(#shadow)">
+    <!-- Hook -->
+    <path d="M347 95 Q347 78 337 72 Q327 67 320 74 Q314 82 317 100 L322 120"
+          fill="none" stroke="url(#silver)" stroke-width="3" stroke-linecap="round"/>
+    <!-- Decorative top piece -->
+    <ellipse cx="324" cy="126" rx="14" ry="9" fill="url(#silver)" stroke="#a8a8a8" stroke-width="0.5"/>
+    <!-- Small diamond accent -->
+    <path d="M324 121 L329 126 L324 131 L319 126 Z" fill="url(#smallDiamond)" stroke="#a0c0e0" stroke-width="0.3"/>
+    <circle cx="322" cy="123" r="1" fill="white" opacity="0.7"/>
+    <!-- Chain/connector -->
+    <line x1="324" y1="135" x2="324" y2="168" stroke="url(#silver)" stroke-width="2"/>
+    <!-- Decorative filigree links -->
+    <ellipse cx="324" cy="145" rx="5" ry="3" fill="none" stroke="url(#silver)" stroke-width="1.2"/>
+    <ellipse cx="324" cy="158" rx="5" ry="3" fill="none" stroke="url(#silver)" stroke-width="1.2"/>
+    <!-- Decorative cap on pearl -->
+    <path d="M309 172 Q316 164 324 162 Q332 164 339 172 L336 180 Q324 184 312 180 Z"
+          fill="url(#silver)" stroke="#a8a8a8" stroke-width="0.5"/>
+    <!-- Small accent pearl -->
+    <circle cx="324" cy="170" r="7" fill="url(#pearl)" stroke="#d5c8bb" stroke-width="0.3"/>
+    <circle cx="321" cy="167" r="2" fill="white" opacity="0.4"/>
+    <!-- Main pearl drop -->
+    <g filter="url(#pearlGlow)">
+      <ellipse cx="324" cy="235" rx="44" ry="54" fill="url(#pearl)" stroke="#d5c8bb" stroke-width="0.5"/>
+      <ellipse cx="324" cy="235" rx="44" ry="54" fill="url(#pearlSheen)"/>
+      <ellipse cx="324" cy="235" rx="44" ry="54" fill="url(#pearlIridescent)"/>
+      <path d="M294 218 Q308 210 332 215" fill="none" stroke="white" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+    </g>
+  </g>
+  <!-- Soft reflections beneath -->
+  <ellipse cx="188" cy="296" rx="28" ry="5" fill="#d5c8bb" opacity="0.06"/>
+  <ellipse cx="324" cy="296" rx="28" ry="5" fill="#d5c8bb" opacity="0.06"/>
+</svg>

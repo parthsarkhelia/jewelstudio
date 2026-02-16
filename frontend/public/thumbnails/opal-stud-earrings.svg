@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f3"/>
+      <stop offset="100%" stop-color="#ede8e1"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a84b"/>
+      <stop offset="40%" stop-color="#f5d998"/>
+      <stop offset="60%" stop-color="#d4a84b"/>
+      <stop offset="100%" stop-color="#b8922f"/>
+    </linearGradient>
+    <linearGradient id="goldDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b8922f"/>
+      <stop offset="100%" stop-color="#8a6e22"/>
+    </linearGradient>
+    <!-- Opal base gradient - milky white/cream -->
+    <radialGradient id="opalBase" cx="45%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#f8f4f0"/>
+      <stop offset="30%" stop-color="#eee8e0"/>
+      <stop offset="60%" stop-color="#e4ddd5"/>
+      <stop offset="100%" stop-color="#d5cec5"/>
+    </radialGradient>
+    <!-- Opal fire - blue/green iridescence -->
+    <radialGradient id="opalBlue" cx="30%" cy="35%" r="40%">
+      <stop offset="0%" stop-color="#88ccee" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#88ccee" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Opal fire - pink/magenta -->
+    <radialGradient id="opalPink" cx="65%" cy="55%" r="35%">
+      <stop offset="0%" stop-color="#ee88bb" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ee88bb" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Opal fire - green -->
+    <radialGradient id="opalGreen" cx="50%" cy="70%" r="30%">
+      <stop offset="0%" stop-color="#88ddaa" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#88ddaa" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Opal fire - golden/orange -->
+    <radialGradient id="opalGold" cx="70%" cy="30%" r="30%">
+      <stop offset="0%" stop-color="#ffcc66" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ffcc66" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Opal fire - violet -->
+    <radialGradient id="opalViolet" cx="25%" cy="60%" r="28%">
+      <stop offset="0%" stop-color="#aa88dd" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#aa88dd" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="opalSheen" cx="35%" cy="30%" r="38%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-15%" width="140%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#00000020"/>
+    </filter>
+    <filter id="opalGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#e8e0d8" flood-opacity="0.25"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <!-- Left earring -->
+  <g filter="url(#shadow)">
+    <!-- Post backing (visible behind) -->
+    <line x1="170" y1="230" x2="170" y2="268" stroke="url(#goldDark)" stroke-width="2.5" opacity="0.3"/>
+    <!-- Gold bezel setting -->
+    <circle cx="170" cy="210" r="58" fill="url(#gold)" stroke="url(#goldDark)" stroke-width="1.5"/>
+    <circle cx="170" cy="210" r="53" fill="url(#goldDark)" stroke="url(#gold)" stroke-width="1" opacity="0.5"/>
+    <!-- Opal stone -->
+    <g filter="url(#opalGlow)">
+      <circle cx="170" cy="210" r="48" fill="url(#opalBase)" stroke="#ccc5bb" stroke-width="0.5"/>
+      <!-- Iridescent color play layers -->
+      <circle cx="170" cy="210" r="48" fill="url(#opalBlue)"/>
+      <circle cx="170" cy="210" r="48" fill="url(#opalPink)"/>
+      <circle cx="170" cy="210" r="48" fill="url(#opalGreen)"/>
+      <circle cx="170" cy="210" r="48" fill="url(#opalGold)"/>
+      <circle cx="170" cy="210" r="48" fill="url(#opalViolet)"/>
+      <!-- Color spots for play-of-color effect -->
+      <circle cx="150" cy="198" r="8" fill="#88ccee" opacity="0.15"/>
+      <circle cx="180" cy="222" r="6" fill="#ee88bb" opacity="0.12"/>
+      <circle cx="160" cy="228" r="7" fill="#88ddaa" opacity="0.1"/>
+      <circle cx="188" cy="195" r="5" fill="#ffcc66" opacity="0.12"/>
+      <circle cx="155" cy="210" r="9" fill="#aa88dd" opacity="0.08"/>
+      <circle cx="178" cy="205" r="6" fill="#88ccee" opacity="0.1"/>
+      <!-- Sheen overlay -->
+      <circle cx="170" cy="210" r="48" fill="url(#opalSheen)"/>
+      <!-- Subtle reflection -->
+      <path d="M142 195 Q158 185 175 192" fill="none" stroke="white" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+    </g>
+  </g>
+  <!-- Right earring -->
+  <g filter="url(#shadow)">
+    <!-- Post backing -->
+    <line x1="342" y1="230" x2="342" y2="268" stroke="url(#goldDark)" stroke-width="2.5" opacity="0.3"/>
+    <!-- Gold bezel setting -->
+    <circle cx="342" cy="210" r="58" fill="url(#gold)" stroke="url(#goldDark)" stroke-width="1.5"/>
+    <circle cx="342" cy="210" r="53" fill="url(#goldDark)" stroke="url(#gold)" stroke-width="1" opacity="0.5"/>
+    <!-- Opal stone -->
+    <g filter="url(#opalGlow)">
+      <circle cx="342" cy="210" r="48" fill="url(#opalBase)" stroke="#ccc5bb" stroke-width="0.5"/>
+      <!-- Iridescent color play layers -->
+      <circle cx="342" cy="210" r="48" fill="url(#opalBlue)"/>
+      <circle cx="342" cy="210" r="48" fill="url(#opalPink)"/>
+      <circle cx="342" cy="210" r="48" fill="url(#opalGreen)"/>
+      <circle cx="342" cy="210" r="48" fill="url(#opalGold)"/>
+      <circle cx="342" cy="210" r="48" fill="url(#opalViolet)"/>
+      <!-- Color spots -->
+      <circle cx="325" cy="200" r="7" fill="#88ccee" opacity="0.14"/>
+      <circle cx="355" cy="218" r="6" fill="#ee88bb" opacity="0.11"/>
+      <circle cx="335" cy="225" r="8" fill="#88ddaa" opacity="0.1"/>
+      <circle cx="358" cy="198" r="5" fill="#ffcc66" opacity="0.11"/>
+      <circle cx="328" cy="212" r="9" fill="#aa88dd" opacity="0.08"/>
+      <circle cx="350" cy="202" r="5" fill="#88ccee" opacity="0.1"/>
+      <!-- Sheen overlay -->
+      <circle cx="342" cy="210" r="48" fill="url(#opalSheen)"/>
+      <!-- Reflection -->
+      <path d="M314 195 Q330 185 347 192" fill="none" stroke="white" stroke-width="1.5" opacity="0.25" stroke-linecap="round"/>
+    </g>
+  </g>
+  <!-- Soft surface reflection -->
+  <ellipse cx="170" cy="275" rx="32" ry="5" fill="#d5cec5" opacity="0.06"/>
+  <ellipse cx="342" cy="275" rx="32" ry="5" fill="#d5cec5" opacity="0.06"/>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f3"/>
+      <stop offset="100%" stop-color="#ede8e1"/>
+    </linearGradient>
+    <linearGradient id="roseGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8a090"/>
+      <stop offset="30%" stop-color="#f5c4b8"/>
+      <stop offset="50%" stop-color="#f8d4ca"/>
+      <stop offset="70%" stop-color="#f5c4b8"/>
+      <stop offset="100%" stop-color="#d48878"/>
+    </linearGradient>
+    <linearGradient id="roseGoldDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c47868"/>
+      <stop offset="100%" stop-color="#a06050"/>
+    </linearGradient>
+    <linearGradient id="roseGoldHighlight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f5c4b8"/>
+      <stop offset="50%" stop-color="#fce8e2"/>
+      <stop offset="100%" stop-color="#f5c4b8"/>
+    </linearGradient>
+    <linearGradient id="roseGoldInner" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d48878"/>
+      <stop offset="50%" stop-color="#e8a090"/>
+      <stop offset="100%" stop-color="#c47060"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#00000018"/>
+    </filter>
+    <filter id="innerShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000010"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g filter="url(#shadow)" transform="rotate(-20, 256, 260)">
+    <!-- Bangle - main oval shape viewed at angle -->
+    <!-- Back portion (visible through opening) -->
+    <ellipse cx="256" cy="260" rx="140" ry="80" fill="none" stroke="url(#roseGoldInner)" stroke-width="22" opacity="0.35"/>
+    <!-- Main front bangle arc -->
+    <path d="M116 260 Q116 185 190 165 Q230 155 256 155 Q282 155 322 165 Q396 185 396 260"
+          fill="none" stroke="url(#roseGold)" stroke-width="24" stroke-linecap="round"/>
+    <!-- Top highlight stripe -->
+    <path d="M122 258 Q122 190 194 170 Q232 161 256 161 Q280 161 318 170 Q390 190 390 258"
+          fill="none" stroke="url(#roseGoldHighlight)" stroke-width="6" opacity="0.5" stroke-linecap="round"/>
+    <!-- Bottom front bangle arc -->
+    <path d="M116 260 Q116 335 190 355 Q230 365 256 365 Q282 365 322 355 Q396 335 396 260"
+          fill="none" stroke="url(#roseGold)" stroke-width="22" stroke-linecap="round"/>
+    <!-- Edge lines for 3D depth -->
+    <ellipse cx="256" cy="260" rx="152" ry="92" fill="none" stroke="#d48878" stroke-width="0.8" opacity="0.3"/>
+    <ellipse cx="256" cy="260" rx="128" ry="68" fill="none" stroke="#f5c4b8" stroke-width="0.6" opacity="0.25"/>
+    <!-- Subtle engraved pattern on the bangle surface -->
+    <g opacity="0.08" stroke="url(#roseGoldDark)" stroke-width="0.8" fill="none">
+      <!-- Decorative scrollwork -->
+      <path d="M170 185 Q180 175 195 180 Q205 190 195 198"/>
+      <path d="M220 168 Q230 158 245 163 Q255 173 245 181"/>
+      <path d="M270 163 Q280 153 295 158 Q305 168 295 176"/>
+      <path d="M320 172 Q330 162 345 167 Q355 177 345 185"/>
+      <path d="M170 335 Q180 345 195 340 Q205 330 195 322"/>
+      <path d="M220 352 Q230 362 245 357 Q255 347 245 339"/>
+      <path d="M270 357 Q280 367 295 362 Q305 352 295 344"/>
+      <path d="M320 348 Q330 358 345 353 Q355 343 345 335"/>
+    </g>
+    <!-- Polished reflection streak -->
+    <path d="M180 190 Q220 170 260 168 Q300 170 340 190"
+          fill="none" stroke="white" stroke-width="2" opacity="0.15" stroke-linecap="round"/>
+    <!-- Clasp/hinge detail at one end -->
+    <rect x="106" y="252" width="8" height="16" rx="2" fill="url(#roseGoldDark)" opacity="0.4"/>
+    <line x1="110" y1="254" x2="110" y2="266" stroke="#fce8e2" stroke-width="0.8" opacity="0.3"/>
+  </g>
+</svg>

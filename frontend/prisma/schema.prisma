@@ -1,0 +1,212 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// NextAuth tables
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// Application tables
+enum Plan {
+  FREE
+  PRO
+  ENTERPRISE
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  plan          Plan      @default(FREE)
+  bio           String?   @db.VarChar(500)
+  storageUsed   BigInt    @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts    Account[]
+  sessions    Session[]
+  models      Model3D[]
+  comments    Comment[]
+  sharedLinks SharedLink[]
+}
+
+enum Visibility {
+  PUBLIC
+  PRIVATE
+  UNLISTED
+}
+
+enum ProcessingStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model Model3D {
+  id               String           @id @default(cuid())
+  userId           String
+  name             String
+  description      String?          @db.Text
+  visibility       Visibility       @default(PRIVATE)
+  originalFileUrl  String?          @db.Text
+  originalFormat   String?
+  glbFileUrl       String?          @db.Text
+  thumbnailUrl     String?          @db.Text
+  processingStatus ProcessingStatus @default(PENDING)
+  processingError  String?          @db.Text
+  celeryTaskId     String?
+  vertexCount      Int?
+  faceCount        Int?
+  fileSize         BigInt?
+  tags             String[]
+  viewCount        Int              @default(0)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  user            User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  materials       ModelMaterial[]
+  comments        Comment[]
+  sharedLinks     SharedLink[]
+  exportJobs      ExportJob[]
+
+  @@index([userId])
+  @@index([visibility])
+  @@map("models")
+}
+
+enum MaterialType {
+  METAL
+  GEMSTONE
+}
+
+model MaterialPreset {
+  id           String       @id @default(cuid())
+  name         String
+  type         MaterialType
+  color        String       // hex color
+  metallic     Float        @default(0)
+  roughness    Float        @default(0.5)
+  ior          Float        @default(1.5)
+  transmission Float        @default(0)
+  clearcoat    Float        @default(0)
+  opacity      Float        @default(1)
+  createdAt    DateTime     @default(now())
+
+  modelMaterials ModelMaterial[]
+
+  @@map("material_presets")
+}
+
+model ModelMaterial {
+  id         String @id @default(cuid())
+  modelId    String
+  materialId String
+  meshName   String
+
+  model    Model3D        @relation(fields: [modelId], references: [id], onDelete: Cascade)
+  material MaterialPreset @relation(fields: [materialId], references: [id])
+
+  @@unique([modelId, meshName])
+  @@map("model_materials")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  modelId   String
+  userId    String
+  text      String   @db.Text
+  parentId  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  model    Model3D   @relation(fields: [modelId], references: [id], onDelete: Cascade)
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  parent   Comment?  @relation("CommentReplies", fields: [parentId], references: [id])
+  replies  Comment[] @relation("CommentReplies")
+
+  @@index([modelId])
+  @@map("comments")
+}
+
+enum SharePermission {
+  VIEW
+  COMMENT
+  DOWNLOAD
+}
+
+model SharedLink {
+  id         String          @id @default(cuid())
+  modelId    String
+  userId     String
+  token      String          @unique @default(cuid())
+  permission SharePermission @default(VIEW)
+  expiresAt  DateTime?
+  createdAt  DateTime        @default(now())
+
+  model Model3D @relation(fields: [modelId], references: [id], onDelete: Cascade)
+  user  User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("shared_links")
+}
+
+enum ExportStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model ExportJob {
+  id           String       @id @default(cuid())
+  modelId      String
+  targetFormat String
+  status       ExportStatus @default(PENDING)
+  resultUrl    String?      @db.Text
+  error        String?      @db.Text
+  celeryTaskId String?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  model Model3D @relation(fields: [modelId], references: [id], onDelete: Cascade)
+
+  @@map("export_jobs")
+}

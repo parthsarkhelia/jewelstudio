@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f3"/>
+      <stop offset="100%" stop-color="#ede8e1"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a84b"/>
+      <stop offset="40%" stop-color="#f5d998"/>
+      <stop offset="60%" stop-color="#d4a84b"/>
+      <stop offset="100%" stop-color="#b8922f"/>
+    </linearGradient>
+    <linearGradient id="goldDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b8922f"/>
+      <stop offset="100%" stop-color="#8a6e22"/>
+    </linearGradient>
+    <radialGradient id="topaz" cx="40%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#ffdd66"/>
+      <stop offset="35%" stop-color="#ffcc44"/>
+      <stop offset="70%" stop-color="#ee9922"/>
+      <stop offset="100%" stop-color="#cc7700"/>
+    </radialGradient>
+    <radialGradient id="topazShine" cx="30%" cy="25%" r="30%">
+      <stop offset="0%" stop-color="#ffee88" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffee88" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="smallDiamond" cx="40%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#e8f4ff"/>
+      <stop offset="100%" stop-color="#b8d8ff"/>
+    </radialGradient>
+    <filter id="shadow" x="-15%" y="-10%" width="130%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00000020"/>
+    </filter>
+    <filter id="topazGlow">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#ee992240"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <!-- Left chandelier earring -->
+  <g filter="url(#shadow)">
+    <!-- Hook -->
+    <path d="M152 65 Q152 50 160 45 Q168 42 174 48 Q178 55 176 68 L173 82"
+          fill="none" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Top diamond stud -->
+    <circle cx="172" cy="88" r="8" fill="url(#smallDiamond)" stroke="url(#gold)" stroke-width="1"/>
+    <circle cx="170" cy="86" r="2" fill="white" opacity="0.6"/>
+    <!-- First tier - two drops -->
+    <line x1="167" y1="96" x2="158" y2="118" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="177" y1="96" x2="186" y2="118" stroke="url(#gold)" stroke-width="1.5"/>
+    <!-- Topaz pear drops tier 1 -->
+    <g filter="url(#topazGlow)">
+      <ellipse cx="155" cy="128" rx="8" ry="12" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="155" cy="128" rx="8" ry="12" fill="url(#topazShine)"/>
+      <ellipse cx="189" cy="128" rx="8" ry="12" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="189" cy="128" rx="8" ry="12" fill="url(#topazShine)"/>
+    </g>
+    <!-- Gold connector bar -->
+    <path d="M150 142 L194 142" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Small diamond accent center -->
+    <circle cx="172" cy="142" r="4" fill="url(#smallDiamond)" stroke="url(#gold)" stroke-width="0.5"/>
+    <!-- Second tier - three drops -->
+    <line x1="153" y1="145" x2="142" y2="172" stroke="url(#gold)" stroke-width="1.2"/>
+    <line x1="172" y1="146" x2="172" y2="172" stroke="url(#gold)" stroke-width="1.2"/>
+    <line x1="191" y1="145" x2="202" y2="172" stroke="url(#gold)" stroke-width="1.2"/>
+    <g filter="url(#topazGlow)">
+      <ellipse cx="139" cy="184" rx="9" ry="14" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="139" cy="184" rx="9" ry="14" fill="url(#topazShine)"/>
+      <ellipse cx="172" cy="184" rx="9" ry="14" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="172" cy="184" rx="9" ry="14" fill="url(#topazShine)"/>
+      <ellipse cx="205" cy="184" rx="9" ry="14" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="205" cy="184" rx="9" ry="14" fill="url(#topazShine)"/>
+    </g>
+    <!-- Gold connector bar -->
+    <path d="M134 200 L210 200" stroke="url(#gold)" stroke-width="2" stroke-linecap="round"/>
+    <!-- Third tier - four larger drops -->
+    <line x1="138" y1="203" x2="125" y2="232" stroke="url(#gold)" stroke-width="1"/>
+    <line x1="158" y1="203" x2="152" y2="232" stroke="url(#gold)" stroke-width="1"/>
+    <line x1="186" y1="203" x2="192" y2="232" stroke="url(#gold)" stroke-width="1"/>
+    <line x1="206" y1="203" x2="219" y2="232" stroke="url(#gold)" stroke-width="1"/>
+    <g filter="url(#topazGlow)">
+      <ellipse cx="122" cy="246" rx="10" ry="16" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="122" cy="246" rx="10" ry="16" fill="url(#topazShine)"/>
+      <ellipse cx="150" cy="246" rx="10" ry="16" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="150" cy="246" rx="10" ry="16" fill="url(#topazShine)"/>
+      <ellipse cx="194" cy="246" rx="10" ry="16" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="194" cy="246" rx="10" ry="16" fill="url(#topazShine)"/>
+      <ellipse cx="222" cy="246" rx="10" ry="16" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="222" cy="246" rx="10" ry="16" fill="url(#topazShine)"/>
+    </g>
+    <!-- Bottom large teardrop -->
+    <line x1="172" y1="202" x2="172" y2="268" stroke="url(#gold)" stroke-width="1.5"/>
+    <g filter="url(#topazGlow)">
+      <ellipse cx="172" cy="286" rx="13" ry="20" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.5"/>
+      <ellipse cx="172" cy="286" rx="13" ry="20" fill="url(#topazShine)"/>
+    </g>
+    <!-- Sparkles -->
+    <g fill="white" opacity="0.5">
+      <circle cx="152" cy="124" r="1.2"/>
+      <circle cx="168" cy="180" r="1"/>
+      <circle cx="119" cy="242" r="1.3"/>
+      <circle cx="169" cy="280" r="1.5"/>
+    </g>
+  </g>
+  <!-- Right chandelier earring -->
+  <g filter="url(#shadow)">
+    <!-- Hook -->
+    <path d="M360 65 Q360 50 352 45 Q344 42 338 48 Q334 55 336 68 L339 82"
+          fill="none" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Top diamond stud -->
+    <circle cx="340" cy="88" r="8" fill="url(#smallDiamond)" stroke="url(#gold)" stroke-width="1"/>
+    <circle cx="338" cy="86" r="2" fill="white" opacity="0.6"/>
+    <!-- First tier -->
+    <line x1="335" y1="96" x2="326" y2="118" stroke="url(#gold)" stroke-width="1.5"/>
+    <line x1="345" y1="96" x2="354" y2="118" stroke="url(#gold)" stroke-width="1.5"/>
+    <g filter="url(#topazGlow)">
+      <ellipse cx="323" cy="128" rx="8" ry="12" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="323" cy="128" rx="8" ry="12" fill="url(#topazShine)"/>
+      <ellipse cx="357" cy="128" rx="8" ry="12" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="357" cy="128" rx="8" ry="12" fill="url(#topazShine)"/>
+    </g>
+    <!-- Gold connector bar -->
+    <path d="M318 142 L362 142" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="340" cy="142" r="4" fill="url(#smallDiamond)" stroke="url(#gold)" stroke-width="0.5"/>
+    <!-- Second tier -->
+    <line x1="321" y1="145" x2="310" y2="172" stroke="url(#gold)" stroke-width="1.2"/>
+    <line x1="340" y1="146" x2="340" y2="172" stroke="url(#gold)" stroke-width="1.2"/>
+    <line x1="359" y1="145" x2="370" y2="172" stroke="url(#gold)" stroke-width="1.2"/>
+    <g filter="url(#topazGlow)">
+      <ellipse cx="307" cy="184" rx="9" ry="14" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="307" cy="184" rx="9" ry="14" fill="url(#topazShine)"/>
+      <ellipse cx="340" cy="184" rx="9" ry="14" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="340" cy="184" rx="9" ry="14" fill="url(#topazShine)"/>
+      <ellipse cx="373" cy="184" rx="9" ry="14" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="373" cy="184" rx="9" ry="14" fill="url(#topazShine)"/>
+    </g>
+    <!-- Gold connector bar -->
+    <path d="M302 200 L378 200" stroke="url(#gold)" stroke-width="2" stroke-linecap="round"/>
+    <!-- Third tier -->
+    <line x1="306" y1="203" x2="293" y2="232" stroke="url(#gold)" stroke-width="1"/>
+    <line x1="326" y1="203" x2="320" y2="232" stroke="url(#gold)" stroke-width="1"/>
+    <line x1="354" y1="203" x2="360" y2="232" stroke="url(#gold)" stroke-width="1"/>
+    <line x1="374" y1="203" x2="387" y2="232" stroke="url(#gold)" stroke-width="1"/>
+    <g filter="url(#topazGlow)">
+      <ellipse cx="290" cy="246" rx="10" ry="16" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="290" cy="246" rx="10" ry="16" fill="url(#topazShine)"/>
+      <ellipse cx="318" cy="246" rx="10" ry="16" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="318" cy="246" rx="10" ry="16" fill="url(#topazShine)"/>
+      <ellipse cx="362" cy="246" rx="10" ry="16" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="362" cy="246" rx="10" ry="16" fill="url(#topazShine)"/>
+      <ellipse cx="390" cy="246" rx="10" ry="16" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.4"/>
+      <ellipse cx="390" cy="246" rx="10" ry="16" fill="url(#topazShine)"/>
+    </g>
+    <!-- Bottom large teardrop -->
+    <line x1="340" y1="202" x2="340" y2="268" stroke="url(#gold)" stroke-width="1.5"/>
+    <g filter="url(#topazGlow)">
+      <ellipse cx="340" cy="286" rx="13" ry="20" fill="url(#topaz)" stroke="#aa7700" stroke-width="0.5"/>
+      <ellipse cx="340" cy="286" rx="13" ry="20" fill="url(#topazShine)"/>
+    </g>
+    <!-- Sparkles -->
+    <g fill="white" opacity="0.5">
+      <circle cx="320" cy="124" r="1.2"/>
+      <circle cx="336" cy="180" r="1"/>
+      <circle cx="287" cy="242" r="1.3"/>
+      <circle cx="337" cy="280" r="1.5"/>
+    </g>
+  </g>
+</svg>

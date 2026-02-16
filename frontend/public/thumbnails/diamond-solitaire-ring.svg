@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f6f3"/>
+      <stop offset="100%" stop-color="#ede8e1"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a84b"/>
+      <stop offset="40%" stop-color="#f5d998"/>
+      <stop offset="60%" stop-color="#d4a84b"/>
+      <stop offset="100%" stop-color="#c49a3c"/>
+    </linearGradient>
+    <linearGradient id="goldInner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b8922f"/>
+      <stop offset="50%" stop-color="#d4a84b"/>
+      <stop offset="100%" stop-color="#b8922f"/>
+    </linearGradient>
+    <radialGradient id="diamond" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#e8f4ff"/>
+      <stop offset="70%" stop-color="#b8d8ff"/>
+      <stop offset="100%" stop-color="#8ab8e8"/>
+    </radialGradient>
+    <radialGradient id="diamondSparkle" cx="35%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#00000025"/>
+    </filter>
+    <linearGradient id="bandHighlight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c49a3c"/>
+      <stop offset="30%" stop-color="#f5d998"/>
+      <stop offset="50%" stop-color="#fffbe6"/>
+      <stop offset="70%" stop-color="#f5d998"/>
+      <stop offset="100%" stop-color="#c49a3c"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <!-- Back of band visible portion -->
+    <path d="M161 310 Q161 355 210 372 Q240 382 272 372 Q322 355 351 310"
+          fill="none" stroke="url(#goldInner)" stroke-width="18" stroke-linecap="round" opacity="0.5"/>
+    <!-- Main front band arc -->
+    <path d="M161 310 Q161 260 200 240 Q220 232 240 230 L272 230 Q292 232 312 240 Q351 260 351 310"
+          fill="none" stroke="url(#gold)" stroke-width="20" stroke-linecap="round"/>
+    <!-- Band highlight shine -->
+    <path d="M165 308 Q165 262 203 243 Q222 235 242 233 L270 233 Q290 235 309 243 Q347 262 347 308"
+          fill="none" stroke="url(#bandHighlight)" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+    <!-- Lower visible band -->
+    <path d="M161 310 Q161 355 210 372 Q240 382 272 372 Q322 355 351 310"
+          fill="none" stroke="url(#gold)" stroke-width="18" stroke-linecap="round"/>
+    <!-- Prong setting arms -->
+    <path d="M232 232 L222 195 L236 170" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M280 232 L290 195 L276 170" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M250 230 L244 195 L246 168" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M262 230 L268 195 L266 168" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linecap="round"/>
+    <!-- Diamond stone -->
+    <path d="M220 172 L236 148 L256 138 L276 148 L292 172 L256 210 Z" fill="url(#diamond)" stroke="#a0c8e8" stroke-width="0.5"/>
+    <!-- Diamond facets -->
+    <path d="M220 172 L256 185 L292 172" fill="none" stroke="#a0c8e8" stroke-width="0.8" opacity="0.6"/>
+    <path d="M236 148 L256 185" fill="none" stroke="#a0c8e8" stroke-width="0.5" opacity="0.5"/>
+    <path d="M276 148 L256 185" fill="none" stroke="#a0c8e8" stroke-width="0.5" opacity="0.5"/>
+    <path d="M256 138 L256 185 L256 210" fill="none" stroke="#a0c8e8" stroke-width="0.5" opacity="0.4"/>
+    <path d="M238 172 L256 185 L274 172" fill="none" stroke="#c0d8f0" stroke-width="0.5" opacity="0.3"/>
+    <!-- Diamond sparkle overlay -->
+    <path d="M220 172 L236 148 L256 138 L276 148 L292 172 L256 210 Z" fill="url(#diamondSparkle)"/>
+    <!-- Diamond fire - small prismatic reflections -->
+    <polygon points="236,155 242,160 238,165" fill="#e0f0ff" opacity="0.3"/>
+    <polygon points="268,155 274,162 270,167" fill="#d8e8ff" opacity="0.25"/>
+    <!-- Small sparkle accents -->
+    <circle cx="242" cy="155" r="2" fill="white" opacity="0.8"/>
+    <circle cx="265" cy="162" r="1.5" fill="white" opacity="0.6"/>
+    <line x1="240" y1="152" x2="246" y2="158" stroke="white" stroke-width="0.5" opacity="0.5"/>
+    <!-- Star sparkle on diamond -->
+    <g transform="translate(248,150)" opacity="0.6">
+      <line x1="-5" y1="0" x2="5" y2="0" stroke="white" stroke-width="0.8"/>
+      <line x1="0" y1="-5" x2="0" y2="5" stroke="white" stroke-width="0.8"/>
+      <line x1="-3" y1="-3" x2="3" y2="3" stroke="white" stroke-width="0.5"/>
+      <line x1="3" y1="-3" x2="-3" y2="3" stroke="white" stroke-width="0.5"/>
+    </g>
+  </g>
+</svg>

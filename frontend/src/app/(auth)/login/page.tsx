@@ -43,7 +43,7 @@ export default function LoginPage() {
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">
             <span className="bg-gradient-to-r from-amber-500 to-yellow-400 bg-clip-text text-transparent">
-              iJewel
+              JewelStudio
             </span>
           </CardTitle>
           <CardDescription>Sign in to your account</CardDescription>

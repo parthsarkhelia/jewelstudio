@@ -54,7 +54,7 @@ export default function RegisterPage() {
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">
             <span className="bg-gradient-to-r from-amber-500 to-yellow-400 bg-clip-text text-transparent">
-              iJewel
+              JewelStudio
             </span>
           </CardTitle>
           <CardDescription>Create your account</CardDescription>

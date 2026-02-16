@@ -7,7 +7,7 @@ from app.routers import upload, conversion, processing, thumbnail
 
 def create_app() -> FastAPI:
     app = FastAPI(
-        title="iJewel 3D Processing API",
+        title="JewelStudio 3D Processing API",
         version="0.1.0",
         docs_url="/api/v1/docs",
         openapi_url="/api/v1/openapi.json",
@@ -28,7 +28,7 @@ def create_app() -> FastAPI:
 
     @app.get("/api/v1/health")
     async def health():
-        return {"status": "ok", "service": "ijewel-backend"}
+        return {"status": "ok", "service": "jewelstudio-backend"}
 
     return app
 

@@ -21,7 +21,7 @@ export function Header() {
       <div className="container mx-auto flex h-14 items-center px-4">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <span className="bg-gradient-to-r from-amber-400 to-yellow-200 bg-clip-text text-transparent">
-            iJewel
+            JewelStudio
           </span>
         </Link>
 

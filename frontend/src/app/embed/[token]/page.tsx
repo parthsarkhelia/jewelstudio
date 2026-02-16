@@ -51,7 +51,7 @@ export default function EmbedPage({ params }: { params: Promise<{ token: string 
           rel="noopener noreferrer"
           className="text-xs text-muted-foreground/50 hover:text-muted-foreground transition-colors"
         >
-          Powered by iJewel
+          Powered by JewelStudio
         </a>
       </div>
     </div>

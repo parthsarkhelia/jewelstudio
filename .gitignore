@@ -32,9 +32,6 @@ dist/
 build/
 *.egg-info/
 
-# Large 3D model files (download separately)
-frontend/public/models/*.glb
-
 # Misc
 *.log
 coverage/

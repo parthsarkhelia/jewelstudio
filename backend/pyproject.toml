@@ -23,6 +23,11 @@ python-multipart = "^0.0.18"
 pydantic-settings = "^2.6.0"
 httpx = "^0.28.0"
 pillow = "^11.0.0"
+numpy = "^1.26.0"
+
+[tool.poetry.group.optional.dependencies]
+rhino3dm = "^8.0.0"
+pyrender = "^0.1.45"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"

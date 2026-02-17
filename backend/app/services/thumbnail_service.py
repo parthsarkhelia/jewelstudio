@@ -1,5 +1,9 @@
+import logging
 import tempfile
+
 import numpy as np
+
+logger = logging.getLogger(__name__)
 
 try:
     import pyrender
@@ -8,12 +12,15 @@ try:
     PYRENDER_AVAILABLE = True
 except ImportError:
     PYRENDER_AVAILABLE = False
+    logger.warning("pyrender not available — thumbnail generation disabled")
 
 
 class ThumbnailService:
     def generate_thumbnail(self, glb_path: str, width: int = 512, height: int = 512) -> str:
         if not PYRENDER_AVAILABLE:
             raise RuntimeError("pyrender not available for thumbnail generation")
+
+        logger.info("Generating thumbnail for %s", glb_path)
 
         mesh = tm.load(glb_path)
         scene = pyrender.Scene(bg_color=[0.1, 0.1, 0.1, 1.0])
@@ -41,7 +48,8 @@ class ThumbnailService:
         color, _ = renderer.render(scene)
         renderer.delete()
 
-        output_path = tempfile.mktemp(suffix=".png")
+        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
+            output_path = tmp.name
         from PIL import Image
 
         img = Image.fromarray(color)

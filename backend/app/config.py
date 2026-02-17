@@ -2,8 +2,8 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    DATABASE_URL: str = "postgresql+asyncpg://jewelstudio:jewelstudio_dev@localhost:5432/jewelstudio"
-    DATABASE_URL_SYNC: str = "postgresql+psycopg2://jewelstudio:jewelstudio_dev@localhost:5432/jewelstudio"
+    DATABASE_URL: str = "postgresql+asyncpg://jewelstudio:jewelstudio_dev@localhost:5433/jewelstudio"
+    DATABASE_URL_SYNC: str = "postgresql+psycopg2://jewelstudio:jewelstudio_dev@localhost:5433/jewelstudio"
     REDIS_URL: str = "redis://localhost:6379/0"
 
     S3_ENDPOINT: str = "http://localhost:9000"

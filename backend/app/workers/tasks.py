@@ -1,3 +1,4 @@
+import logging
 import os
 import tempfile
 
@@ -11,25 +12,31 @@ from app.services.conversion_service import conversion_service
 from app.services.storage_service import storage_service
 from app.services.thumbnail_service import thumbnail_service
 
+logger = logging.getLogger(__name__)
+
+_engine = create_engine(settings.DATABASE_URL_SYNC, pool_pre_ping=True)
+
 
 def get_sync_session() -> Session:
-    engine = create_engine(settings.DATABASE_URL_SYNC)
-    return Session(engine)
+    return Session(_engine)
 
 
 @celery_app.task(bind=True, name="process_upload")
 def process_upload(self, model_id: str, original_key: str, original_format: str):
+    logger.info("Processing upload model_id=%s format=%s", model_id, original_format)
     session = get_sync_session()
     try:
         model = session.query(Model3D).filter(Model3D.id == model_id).first()
         if not model:
+            logger.error("Model not found: %s", model_id)
             return {"error": "Model not found"}
 
         model.processing_status = ProcessingStatus.PROCESSING.value
         session.commit()
 
         # Download original file
-        tmp_input = tempfile.mktemp(suffix=f".{original_format}")
+        with tempfile.NamedTemporaryFile(suffix=f".{original_format}", delete=False) as tmp:
+            tmp_input = tmp.name
         storage_service.download_file(settings.S3_BUCKET_MODELS, original_key, tmp_input)
 
         # Convert to GLB
@@ -40,6 +47,7 @@ def process_upload(self, model_id: str, original_key: str, original_format: str)
 
         # Optimize if needed
         if mesh_info["total_faces"] > settings.MAX_TRIANGLES:
+            logger.info("Optimizing mesh: %d faces > %d max", mesh_info["total_faces"], settings.MAX_TRIANGLES)
             glb_path = conversion_service.optimize_mesh(glb_path, settings.MAX_TRIANGLES)
             mesh_info = conversion_service.get_mesh_info(glb_path)
 
@@ -58,8 +66,8 @@ def process_upload(self, model_id: str, original_key: str, original_format: str)
             )
             model.thumbnail_url = thumb_url
             os.unlink(thumb_path)
-        except Exception:
-            pass  # Thumbnail generation is optional
+        except Exception as e:
+            logger.warning("Thumbnail generation failed for model_id=%s: %s", model_id, e)
 
         # Update model
         model.glb_file_url = glb_url
@@ -72,9 +80,11 @@ def process_upload(self, model_id: str, original_key: str, original_format: str)
         os.unlink(tmp_input)
         os.unlink(glb_path)
 
+        logger.info("Upload processing completed model_id=%s", model_id)
         return {"status": "completed", "model_id": model_id}
 
     except Exception as e:
+        logger.exception("Upload processing failed model_id=%s", model_id)
         model = session.query(Model3D).filter(Model3D.id == model_id).first()
         if model:
             model.processing_status = ProcessingStatus.FAILED.value
@@ -87,10 +97,12 @@ def process_upload(self, model_id: str, original_key: str, original_format: str)
 
 @celery_app.task(bind=True, name="process_export")
 def process_export(self, job_id: str, model_id: str, target_format: str):
+    logger.info("Processing export job_id=%s model_id=%s format=%s", job_id, model_id, target_format)
     session = get_sync_session()
     try:
         job = session.query(ExportJob).filter(ExportJob.id == job_id).first()
         if not job:
+            logger.error("Export job not found: %s", job_id)
             return {"error": "Job not found"}
 
         job.status = ExportStatus.PROCESSING.value
@@ -102,7 +114,8 @@ def process_export(self, job_id: str, model_id: str, target_format: str):
 
         # Download GLB
         glb_key = f"glb/{model.user_id}/{model_id}.glb"
-        tmp_input = tempfile.mktemp(suffix=".glb")
+        with tempfile.NamedTemporaryFile(suffix=".glb", delete=False) as tmp:
+            tmp_input = tmp.name
         storage_service.download_file(settings.S3_BUCKET_MODELS, glb_key, tmp_input)
 
         # Convert
@@ -121,9 +134,11 @@ def process_export(self, job_id: str, model_id: str, target_format: str):
         os.unlink(tmp_input)
         os.unlink(output_path)
 
+        logger.info("Export completed job_id=%s", job_id)
         return {"status": "completed", "job_id": job_id}
 
     except Exception as e:
+        logger.exception("Export failed job_id=%s", job_id)
         job = session.query(ExportJob).filter(ExportJob.id == job_id).first()
         if job:
             job.status = ExportStatus.FAILED.value

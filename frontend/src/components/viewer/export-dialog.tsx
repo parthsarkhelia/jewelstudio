@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 import {
   Dialog,
   DialogContent,
@@ -30,10 +31,10 @@ interface ExportDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   modelId: string;
-  token: string;
 }
 
-export function ExportDialog({ open, onOpenChange, modelId, token }: ExportDialogProps) {
+export function ExportDialog({ open, onOpenChange, modelId }: ExportDialogProps) {
+  const { data: session } = useSession();
   const [format, setFormat] = useState("stl");
   const [status, setStatus] = useState<"idle" | "processing" | "done" | "error">("idle");
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
@@ -44,12 +45,17 @@ export function ExportDialog({ open, onOpenChange, modelId, token }: ExportDialo
     setError(null);
 
     try {
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+      };
+
+      if (session?.user?.id) {
+        headers["X-User-Id"] = session.user.id;
+      }
+
       const res = await fetch(`${BACKEND_URL}/api/v1/convert`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+        headers,
         body: JSON.stringify({ model_id: modelId, target_format: format }),
       });
 
@@ -61,7 +67,7 @@ export function ExportDialog({ open, onOpenChange, modelId, token }: ExportDialo
       // Poll
       const poll = async () => {
         const statusRes = await fetch(`${BACKEND_URL}/api/v1/convert/${jobId}`, {
-          headers: { Authorization: `Bearer ${token}` },
+          headers,
         });
         const statusData = await statusRes.json();
 

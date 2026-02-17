@@ -1,8 +1,10 @@
+import logging
 import tempfile
 from pathlib import Path
 
 import trimesh
 
+logger = logging.getLogger(__name__)
 
 SUPPORTED_IMPORT_FORMATS = {".obj", ".stl", ".ply", ".glb", ".gltf", ".3dm", ".fbx", ".off", ".dae"}
 SUPPORTED_EXPORT_FORMATS = {".obj", ".stl", ".ply", ".glb", ".gltf", ".off"}
@@ -11,12 +13,14 @@ SUPPORTED_EXPORT_FORMATS = {".obj", ".stl", ".ply", ".glb", ".gltf", ".off"}
 class ConversionService:
     def convert_to_glb(self, input_path: str) -> str:
         ext = Path(input_path).suffix.lower()
+        logger.info("Converting %s to GLB", ext)
 
         if ext == ".3dm":
             return self._convert_3dm_to_glb(input_path)
 
         scene = trimesh.load(input_path)
-        output_path = tempfile.mktemp(suffix=".glb")
+        with tempfile.NamedTemporaryFile(suffix=".glb", delete=False) as tmp:
+            output_path = tmp.name
 
         if isinstance(scene, trimesh.Scene):
             scene.export(output_path, file_type="glb")
@@ -54,7 +58,8 @@ class ConversionService:
             raise ValueError("No mesh geometry found in .3dm file")
 
         scene = trimesh.Scene(geometry={f"mesh_{i}": m for i, m in enumerate(meshes)})
-        output_path = tempfile.mktemp(suffix=".glb")
+        with tempfile.NamedTemporaryFile(suffix=".glb", delete=False) as tmp:
+            output_path = tmp.name
         scene.export(output_path, file_type="glb")
         return output_path
 
@@ -63,8 +68,10 @@ class ConversionService:
         if target_ext not in SUPPORTED_EXPORT_FORMATS:
             raise ValueError(f"Unsupported export format: {target_format}")
 
+        logger.info("Converting to %s", target_ext)
         scene = trimesh.load(input_path)
-        output_path = tempfile.mktemp(suffix=target_ext)
+        with tempfile.NamedTemporaryFile(suffix=target_ext, delete=False) as tmp:
+            output_path = tmp.name
 
         if isinstance(scene, trimesh.Scene):
             if target_ext in {".obj", ".stl", ".ply", ".off"}:
@@ -124,7 +131,8 @@ class ConversionService:
             ratio = max_triangles / len(combined.faces)
             combined = combined.simplify_quadric_decimation(int(len(combined.faces) * ratio))
 
-        output_path = tempfile.mktemp(suffix=".glb")
+        with tempfile.NamedTemporaryFile(suffix=".glb", delete=False) as tmp:
+            output_path = tmp.name
         trimesh.Scene(geometry={"mesh": combined}).export(output_path, file_type="glb")
         return output_path
 

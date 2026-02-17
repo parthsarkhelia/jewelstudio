@@ -29,9 +29,6 @@ export function Header() {
           <Link href="/explore" className="text-muted-foreground hover:text-foreground transition-colors">
             Explore
           </Link>
-          <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
-            Pricing
-          </Link>
         </nav>
 
         <div className="ml-auto flex items-center gap-2">

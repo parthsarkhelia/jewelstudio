@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { MaterialPanel } from "@/components/viewer/material-panel";
 import { Toolbar } from "@/components/viewer/toolbar";
 import { ExportDialog } from "@/components/viewer/export-dialog";
+import { ShareDialog } from "@/components/viewer/share-dialog";
+import { CommentsDialog } from "@/components/viewer/comments-dialog";
 import { useViewerStore } from "@/hooks/use-viewer";
 import type { Model3D } from "@/types";
 import { ArrowLeft, Share2, MessageSquare } from "lucide-react";
@@ -24,6 +26,8 @@ export default function ViewerPage({ params }: { params: Promise<{ id: string }>
   const [model, setModel] = useState<Model3D | null>(null);
   const [loading, setLoading] = useState(true);
   const [showExport, setShowExport] = useState(false);
+  const [showShare, setShowShare] = useState(false);
+  const [showComments, setShowComments] = useState(false);
   const [showMaterials, setShowMaterials] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const setSelectedMesh = useViewerStore((s) => s.setSelectedMesh);
@@ -112,11 +116,11 @@ export default function ViewerPage({ params }: { params: Promise<{ id: string }>
           </div>
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button size="sm" variant="outline">
+            <Button size="sm" variant="outline" onClick={() => setShowShare(true)}>
               <Share2 className="h-4 w-4 mr-1" />
               Share
             </Button>
-            <Button size="sm" variant="outline">
+            <Button size="sm" variant="outline" onClick={() => setShowComments(true)}>
               <MessageSquare className="h-4 w-4 mr-1" />
               Comments
             </Button>
@@ -157,12 +161,21 @@ export default function ViewerPage({ params }: { params: Promise<{ id: string }>
         </div>
       )}
 
-      {/* Export Dialog */}
+      {/* Dialogs */}
       <ExportDialog
         open={showExport}
         onOpenChange={setShowExport}
         modelId={model.id}
-        token="dev-token"
+      />
+      <ShareDialog
+        open={showShare}
+        onOpenChange={setShowShare}
+        modelId={model.id}
+      />
+      <CommentsDialog
+        open={showComments}
+        onOpenChange={setShowComments}
+        modelId={model.id}
       />
     </div>
   );

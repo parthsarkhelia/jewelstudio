@@ -39,3 +39,6 @@ frontend/public/models/*.glb
 *.log
 coverage/
 .pytest_cache/
+
+# AI
+.claude

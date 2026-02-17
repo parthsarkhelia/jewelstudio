@@ -55,6 +55,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  password      String?
   plan          Plan      @default(FREE)
   bio           String?   @db.VarChar(500)
   storageUsed   BigInt    @default(0)

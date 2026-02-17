@@ -1,4 +1,4 @@
-.PHONY: dev-up dev-down dev-frontend dev-backend dev-worker dev-all db-migrate db-seed db-studio clean
+.PHONY: dev-up dev-down dev-frontend dev-backend dev-worker dev-all db-migrate db-seed db-studio clean setup alembic-migrate
 
 # Docker services
 dev-up:
@@ -10,6 +10,11 @@ dev-down:
 dev-reset:
 	docker compose -f docker/docker-compose.yml down -v
 	docker compose -f docker/docker-compose.yml up -d
+
+# Setup
+setup:
+	cd frontend && npm install
+	cd backend && python -m venv .venv && source .venv/bin/activate && pip install poetry && poetry install
 
 # Frontend
 dev-frontend:
@@ -42,6 +47,13 @@ db-studio:
 
 db-generate:
 	cd frontend && npx prisma generate
+
+# Backend migrations
+alembic-migrate:
+	cd backend && source .venv/bin/activate && alembic upgrade head
+
+alembic-revision:
+	cd backend && source .venv/bin/activate && alembic revision --autogenerate -m "$(msg)"
 
 # Cleanup
 clean:

@@ -1,4 +1,5 @@
 import { PrismaClient, MaterialType } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -32,9 +33,29 @@ const materialPresets: {
   { name: "Pearl", type: MaterialType.GEMSTONE, color: "#FDEEF4", metallic: 0.3, roughness: 0.3, ior: 1.53, transmission: 0, clearcoat: 0.8, opacity: 1 },
 ];
 
-async function main() {
-  console.log("Seeding material presets...");
+const demoModels = [
+  { file: "ring.glb", name: "Classic Ring", tags: ["ring", "classic"] },
+  { file: "ring-2.glb", name: "Designer Ring", tags: ["ring", "designer"] },
+  { file: "rings.glb", name: "Ring Collection", tags: ["ring", "collection"] },
+  { file: "band.glb", name: "Wedding Band", tags: ["band", "wedding"] },
+  { file: "eternity.glb", name: "Eternity Band", tags: ["band", "eternity"] },
+  { file: "necklace.glb", name: "Necklace", tags: ["necklace"] },
+  { file: "pendant.glb", name: "Pendant", tags: ["pendant"] },
+  { file: "earring.glb", name: "Earring", tags: ["earring"] },
+  { file: "bracelet.glb", name: "Bracelet", tags: ["bracelet"] },
+  { file: "gem.glb", name: "Gemstone", tags: ["gemstone"] },
+  { file: "emerald-cut-flower-ring.glb", name: "Emerald Cut Flower Ring", tags: ["ring", "emerald", "flower"] },
+  { file: "emerald-ramona.glb", name: "Emerald Ramona", tags: ["ring", "emerald"] },
+  { file: "annamaria-camilli.glb", name: "Annamaria Camilli", tags: ["ring", "designer"] },
+  { file: "animated-hand-rings.glb", name: "Hand Rings", tags: ["ring", "hand"] },
+  { file: "coruja-pingente.glb", name: "Coruja Pingente", tags: ["pendant", "owl"] },
+  { file: "hummingbird.glb", name: "Hummingbird Brooch", tags: ["brooch", "bird"] },
+  { file: "macaw-brooch.glb", name: "Macaw Brooch", tags: ["brooch", "bird"] },
+];
 
+async function main() {
+  // Seed material presets
+  console.log("Seeding material presets...");
   for (const preset of materialPresets) {
     await prisma.materialPreset.upsert({
       where: { id: preset.name.toLowerCase().replace(/\s+/g, "-") },
@@ -45,8 +66,41 @@ async function main() {
       },
     });
   }
-
   console.log(`Seeded ${materialPresets.length} material presets`);
+
+  // Create demo user
+  const hashedPassword = await bcrypt.hash("demo1234", 12);
+  const demoUser = await prisma.user.upsert({
+    where: { email: "demo@jewelstudio.dev" },
+    update: {},
+    create: {
+      email: "demo@jewelstudio.dev",
+      name: "JewelStudio Demo",
+      password: hashedPassword,
+    },
+  });
+  console.log(`Demo user: demo@jewelstudio.dev / demo1234`);
+
+  // Seed demo models
+  console.log("Seeding demo models...");
+  for (const model of demoModels) {
+    const existing = await prisma.model3D.findFirst({
+      where: { name: model.name, userId: demoUser.id },
+    });
+    if (existing) continue;
+
+    await prisma.model3D.create({
+      data: {
+        userId: demoUser.id,
+        name: model.name,
+        visibility: "PUBLIC",
+        processingStatus: "COMPLETED",
+        glbFileUrl: `/models/${model.file}`,
+        tags: model.tags,
+      },
+    });
+  }
+  console.log(`Seeded ${demoModels.length} demo models`);
 }
 
 main()
